@@ -1,7 +1,11 @@
 <script>
+import ProjectCard from './ProjectCard.vue';
 import axios from 'axios';
     export default{
         name: 'ProjectList',
+        components: {
+            ProjectCard
+        },
         data() {
             return {
                 projects: [],
@@ -33,27 +37,8 @@ import axios from 'axios';
 <template>
     <div class="container">
         <ul class="project_list">
-            <li v-for="project in projects" class="project">
-                <div class="card">
-                    <img :src="project.image" :alt="project.title">
-                    <p class="title">
-                        {{ project.title }}
-                    </p>
-                    <p class="topic">
-                        {{ project.topic }}
-                    </p>
-                    <p class="type" :style="'color:' + project.type.color + ';'">
-                        {{ project.type.name }}
-                    </p>
-                    <ul class="technology_list">
-                        <li v-for="technology in project.technologies" :style="'color:' + technology.border_color + ';'">
-                            {{ technology.name }}
-                        </li>
-                    </ul>
-                    <a :href="project.gitHub" class="gitHub_btn">
-                        See this Project Repository
-                    </a>
-                </div>
+            <li v-for="project in projects">
+                <ProjectCard :project="project"/>
             </li>
         </ul>
     </div>
@@ -62,24 +47,18 @@ import axios from 'axios';
 <style lang="scss" scoped>
     .container {
         max-width: 1500px;
+        width: 100%;
         margin: auto;
+        padding: 5rem 0;
 
         .project_list{
             display: flex;
             justify-content: center;
+            align-items: stretch;
             flex-wrap: wrap;
             list-style: none;
             gap: 1rem;
-            .project{
-                width: calc((100% / 4) - 3rem);
-                background-color: beige;
-                border-radius: 10px;
-
-                img{
-                    width: 100%;
-                    display: block;
-                }
-            }
+            width: 100%;
         }
     }
 </style>

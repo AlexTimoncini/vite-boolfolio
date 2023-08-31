@@ -22,6 +22,9 @@ import axios from 'axios';
                 .catch(function (error) {
                     console.log(error);
                 });
+            },
+            showSingleProject(projectSlug){
+                this.$router.push({name: 'Project', params: { slug: projectSlug }});
             }
         },
         created() {
@@ -36,7 +39,7 @@ import axios from 'axios';
     <div class="container">
         <ul class="project_list">
             <li v-for="project in projects">
-                <ProjectCard :project="project"/>
+                <ProjectCard :project="project" @click="showSingleProject(project.slug)"/>
             </li>
         </ul>
     </div>

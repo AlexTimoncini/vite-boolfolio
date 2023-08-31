@@ -1,8 +1,8 @@
 <script>
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 import axios from 'axios';
     export default{
-        name: 'ProjectList',
+        name: 'ProjectIndex',
         components: {
             ProjectCard
         },
@@ -15,9 +15,6 @@ import axios from 'axios';
         methods: {
             getProjects(){
                 axios.get(this.projectsApi, {
-                    params: {
-                    ID: 12345
-                    }
                 })
                 .then((response) => {
                     this.projects = response.data.results.data;
@@ -35,6 +32,7 @@ import axios from 'axios';
 </script>
 
 <template>
+    <h1>Project List:</h1>
     <div class="container">
         <ul class="project_list">
             <li v-for="project in projects">
@@ -45,6 +43,9 @@ import axios from 'axios';
 </template>
 
 <style lang="scss" scoped>
+    h1{
+        color: aliceblue;
+    }
     .container {
         max-width: 1500px;
         width: 100%;

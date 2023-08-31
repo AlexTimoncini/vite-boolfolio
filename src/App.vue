@@ -1,17 +1,21 @@
 <script>
-  import ProjectList from './components/ProjectList.vue';
+	import HeaderNavbar from './components/HeaderNavbar.vue';
+	import FooterNavbar from './components/FooterNavbar.vue';
     export default{
         name: 'App',
         components: {
-          ProjectList
-        }
+			HeaderNavbar,
+			FooterNavbar,
+		}
     }
 </script>
 
 <template>
-    <ProjectList/>
+    <HeaderNavbar/>
+    <router-view></router-view>   
+    <FooterNavbar/>
 </template>
 
 <style lang="scss">
-  @use './scss/style.scss';
+    @use './scss/style.scss';
 </style>

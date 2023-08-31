@@ -35,7 +35,7 @@
         display: flex;
         justify-content: end;
         flex-direction: column;
-        width: calc((1500px / 2) - 2rem);
+        width: 700px;
         height: 100%;
         background-color: rgb(183, 183, 183);
         overflow: hidden;
